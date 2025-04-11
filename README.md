@@ -1,1 +1,1 @@
-# windows_to_linux
+cuma buat penengah linux dan windows
